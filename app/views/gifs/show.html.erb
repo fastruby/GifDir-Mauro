@@ -1,0 +1,7 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<h1>Your gif is called <%= @gif.name %></h1>
+
+<%= image_tag @gif.img.variant(resize_to_limit: [300, 300]) %>

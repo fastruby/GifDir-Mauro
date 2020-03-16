@@ -1,0 +1,6 @@
+<h1>Gifs</h1>
+
+<%- @gifs.each do |gif| -%>
+  <%= gif.name %></br>
+  <%= image_tag gif.img.variant(resize_to_limit: [100, 100]) %></br>
+<%- end -%>

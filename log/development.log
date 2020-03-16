@@ -1,0 +1,1133 @@
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (18.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGifs (20200316131621)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "gifs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200316131621"]]
+  [1m[35m (18.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-16 13:19:36.396816"], ["updated_at", "2020-03-16 13:19:36.396816"]]
+  [1m[35m (20.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-03-16 14:27:58 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/mauro/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/mauro/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 13.9ms | Allocations: 470)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 2609)
+
+
+Started GET "/gifs" for 127.0.0.1 at 2020-03-16 14:28:05 +0100
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for GifsController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:28:08 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 19.1ms | Allocations: 6793)
+Completed 200 OK in 48ms (Views: 47.6ms | ActiveRecord: 0.0ms | Allocations: 22795)
+
+
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:33:59 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 784)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2498)
+
+
+Started POST "/gifs/new" for 127.0.0.1 at 2020-03-16 14:34:04 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/gifs/new"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:36:06 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 212.6ms | Allocations: 57866)
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 0.0ms | Allocations: 58663)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_form_path' for #<#<Class:0x00007efef8594540>:0x00007efef85a2cf8>
+Did you mean?  new_gif_path):
+    1: <h1>Add a new Gif</h1>
+    2: <%= form_for :gif, new_form_path do |f| %>
+    3:   <%= f.label :name %>
+    4:   <%= f.text_field :name %>
+    5:   <%= f.submit %>
+  
+app/views/gifs/new.html.erb:2
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:36:16 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1034)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1822)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    1: <h1>Add a new Gif</h1>
+    2: <%= form_for :gif, new_gif_path do |f| %>
+    3:   <%= f.label :name %>
+    4:   <%= f.text_field :name %>
+    5:   <%= f.submit %>
+  
+app/views/gifs/new.html.erb:2
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:36:42 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1085)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1873)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"gifs"}, missing required keys: [:id]):
+    1: <h1>Add a new Gif</h1>
+    2: <%= form_for :gif, gif_path do |f| %>
+    3:   <%= f.label :name %>
+    4:   <%= f.text_field :name %>
+    5:   <%= f.submit %>
+  
+app/views/gifs/new.html.erb:2
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:37:11 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1421)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2869)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    1: <h1>Add a new Gif</h1>
+    2: <%= form_for :gif, gifs_path do |f| %>
+    3:   <%= f.label :name %>
+    4:   <%= f.text_field :name %>
+    5:   <%= f.submit %>
+  
+app/views/gifs/new.html.erb:2
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:37:40 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4943)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 9165)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 14:37:47 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"goYnRj5e8UEd+AL/Bn7EGnlWlJWTy7EX1MxeGLXA4cIW1W0giUaK+LIomzNC5JlZrbn/kIYPD6t7P2Da68wTrQ==", "gif"=>{"name"=>"hello"}, "commit"=>"Save Gif"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 3784)
+
+
+  
+NoMethodError (undefined method `build' for #<Class:0x000055ba79340f38>):
+  
+app/controllers/gifs_controller.rb:11:in `create'
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:38:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 608)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 2320)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 14:38:28 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"IyaTb/swAX1RqdPsaSaTVZgb2uc6QEuu4+3zhQDncg+3ddkJTCh6xP55SiAtvM4WTPSx4i+E9RJMHs1HXuuAYA==", "gif"=>{"name"=>"hello"}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mGif Create (0.4ms)[0m  [1m[32mINSERT INTO "gifs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "hello"], ["created_at", "2020-03-16 13:38:28.799486"], ["updated_at", "2020-03-16 13:38:28.799486"]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[35m (21.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+Redirected to http://localhost:3000/gifs/1
+Completed 302 Found in 36ms (ActiveRecord: 23.3ms | Allocations: 6970)
+
+
+Started GET "/gifs/1" for 127.0.0.1 at 2020-03-16 14:38:28 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+Completed 406 Not Acceptable in 4ms (ActiveRecord: 0.2ms | Allocations: 1804)
+
+
+  
+ActionController::MissingExactTemplate (GifsController#show is missing a template for request formats: text/html):
+  
+actionpack (6.0.2.1) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/gifs/1" for 127.0.0.1 at 2020-03-16 14:40:00 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGif Load (0.1ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  Rendered gifs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 107)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 3098)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20200316134526)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200316134526"]]
+  [1m[35m (19.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:47:13 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3849)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms | Allocations: 19261)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 14:48:34 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"ftWP+hrFV3cxEk/VtbWMiBrN2g6OF5ha0EIsm/LJNxnqhsWcrd0szp7C1hnxL9HLziKxC5vTJuZ/sRJZrMXFdg==", "gif"=>{"name"=>"mauro", "img"=>#<ActionDispatch::Http::UploadedFile:0x00007ff9d461ce68 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-4392-lc3rsk.jpg>, @original_filename="IMG_7941.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"IMG_7941.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mGif Create (0.3ms)[0m  [1m[32mINSERT INTO "gifs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "mauro"], ["created_at", "2020-03-16 13:48:34.402361"], ["updated_at", "2020-03-16 13:48:34.402361"]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "4mhswldrkfeij8rltmjeqbyy8fj1"], ["filename", "IMG_7941.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 161544], ["checksum", "QRwBx/qxNWvcDdhYzha8RA=="], ["created_at", "2020-03-16 13:48:34.595450"]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "img"], ["record_type", "Gif"], ["record_id", 2], ["blob_id", 1], ["created_at", "2020-03-16 13:48:34.597594"]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[36mGif Update (0.1ms)[0m  [1m[33mUPDATE "gifs" SET "updated_at" = ? WHERE "gifs"."id" = ?[0m  [["updated_at", "2020-03-16 13:48:34.599309"], ["id", 2]]
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  [1m[35m (24.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+[36m  Disk Storage (1.3ms) [0m[32mUploaded file to key: 4mhswldrkfeij8rltmjeqbyy8fj1 (checksum: QRwBx/qxNWvcDdhYzha8RA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1) to Async(active_storage_analysis) with arguments: #<GlobalID:0x000055b1ed64c568 @uri=#<URI::GID gid://ombulabs/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/gifs/2
+Completed 302 Found in 260ms (ActiveRecord: 28.2ms | Allocations: 81904)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1] Performing ActiveStorage::AnalyzeJob (Job ID: d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1) from Async(active_storage_analysis) enqueued at 2020-03-16T13:48:34Z with arguments: #<GlobalID:0x000055b1ed752700 @uri=#<URI::GID gid://ombulabs/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1] [36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: 4mhswldrkfeij8rltmjeqbyy8fj1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1]   [1m[35m (23.1ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1] Performed ActiveStorage::AnalyzeJob (Job ID: d5dd9ab7-36d0-4b92-b0cc-77d56ba964d1) from Async(active_storage_analysis) in 32.72ms
+Started GET "/gifs/2" for 127.0.0.1 at 2020-03-16 14:48:34 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  Rendered gifs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 3564)
+
+
+Started GET "/gifs/2" for 127.0.0.1 at 2020-03-16 14:49:15 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGif Load (0.1ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  Rendered gifs/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 4758)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.6ms | Allocations: 7768)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b/IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:49:15 +0100
+Processing by ActiveStorage::RepresentationsController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b", "filename"=>"IMG_7941"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (no)[0m
+[36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: 4mhswldrkfeij8rltmjeqbyy8fj1[0m
+DEPRECATION WARNING: Generating image variants will require the image_processing gem in Rails 6.1. Please add `gem 'image_processing', '~> 1.2'` to your Gemfile. (called from transformer at /home/mauro/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activestorage-6.0.2.1/app/models/active_storage/variation.rb:64)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms | Allocations: 3521)
+
+
+  
+LoadError (cannot load such file -- mini_magick):
+  
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:41:in `rescue in require'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:27:in `require'
+zeitwerk (2.3.0) lib/zeitwerk/kernel.rb:23:in `require'
+activestorage (6.0.2.1) lib/active_storage/transformers/mini_magick_transformer.rb:3:in `<main>'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+bootsnap (1.4.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+zeitwerk (2.3.0) lib/zeitwerk/kernel.rb:23:in `require'
+activestorage (6.0.2.1) app/models/active_storage/variation.rb:72:in `rescue in transformer'
+activestorage (6.0.2.1) app/models/active_storage/variation.rb:64:in `transformer'
+activestorage (6.0.2.1) app/models/active_storage/variation.rb:52:in `block in transform'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:182:in `instrument'
+activestorage (6.0.2.1) app/models/active_storage/variation.rb:51:in `transform'
+activestorage (6.0.2.1) app/models/active_storage/variant.rb:105:in `transform'
+activestorage (6.0.2.1) app/models/active_storage/variant.rb:100:in `block in process'
+activestorage (6.0.2.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (6.0.2.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (6.0.2.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (6.0.2.1) lib/active_storage/service.rb:86:in `open'
+activestorage (6.0.2.1) app/models/active_storage/blob.rb:219:in `open'
+activestorage (6.0.2.1) app/models/active_storage/variant.rb:99:in `process'
+activestorage (6.0.2.1) app/models/active_storage/variant.rb:67:in `processed'
+activestorage (6.0.2.1) app/controllers/active_storage/representations_controller.rb:12:in `show'
+actionpack (6.0.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/gifs/2" for 127.0.0.1 at 2020-03-16 14:49:44 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  Rendered gifs/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2239)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 5304)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f/IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:49:44 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f", "filename"=>"IMG_7941"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.1ms) [0m[34mGenerated URL for file at key: 4mhswldrkfeij8rltmjeqbyy8fj1 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NDo0NC44MzNaIiwicHVyIjoiYmxvYl9rZXkifX0=--16031487045db9bdf2198f6415b77728acb4abdb/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NDo0NC44MzNaIiwicHVyIjoiYmxvYl9rZXkifX0=--16031487045db9bdf2198f6415b77728acb4abdb/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 1716)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NDo0NC44MzNaIiwicHVyIjoiYmxvYl9rZXkifX0=--16031487045db9bdf2198f6415b77728acb4abdb/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:49:44 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_7941.jpg\"; filename*=UTF-8''IMG_7941.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NDo0NC44MzNaIiwicHVyIjoiYmxvYl9rZXkifX0=--16031487045db9bdf2198f6415b77728acb4abdb", "filename"=>"IMG_7941"}
+Completed 200 OK in 8ms (ActiveRecord: 0.0ms | Allocations: 5841)
+
+
+Started GET "/gifs/2" for 127.0.0.1 at 2020-03-16 14:50:46 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  Rendered gifs/show.html.erb within layouts/application (Duration: 32.4ms | Allocations: 19557)
+Completed 200 OK in 77ms (Views: 45.1ms | ActiveRecord: 2.5ms | Allocations: 29794)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f/IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:50:46 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f", "filename"=>"IMG_7941"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (2.7ms) [0m[34mGenerated URL for file at key: 4mhswldrkfeij8rltmjeqbyy8fj1 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NTo0Ni43MTlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9df3265e94cc3ad81bcf80770da03ad488b87131/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NTo0Ni43MTlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9df3265e94cc3ad81bcf80770da03ad488b87131/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 2911)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NTo0Ni43MTlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9df3265e94cc3ad81bcf80770da03ad488b87131/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:50:46 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_7941.jpg\"; filename*=UTF-8''IMG_7941.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxODNPVFF4TG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25TVTFIWHpjNU5ERXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE9IiwiZXhwIjoiMjAyMC0wMy0xNlQxMzo1NTo0Ni43MTlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9df3265e94cc3ad81bcf80770da03ad488b87131", "filename"=>"IMG_7941"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 2559)
+
+
+Started GET "/gifs/2" for 127.0.0.1 at 2020-03-16 14:50:52 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:5:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:3
+  Rendered gifs/show.html.erb within layouts/application (Duration: 9.0ms | Allocations: 2535)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.5ms | Allocations: 5536)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b/IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:50:52 +0100
+Processing by ActiveStorage::RepresentationsController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b", "filename"=>"IMG_7941"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (no)[0m
+[36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: 4mhswldrkfeij8rltmjeqbyy8fj1[0m
+[36m  Disk Storage (1.4ms) [0m[32mUploaded file to key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTM6NTU6NTMuMzE2WiIsInB1ciI6ImJsb2Jfa2V5In19--8c9ea8c165cc193aed70c5b1247091d0b4a3fe4a/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTM6NTU6NTMuMzE2WiIsInB1ciI6ImJsb2Jfa2V5In19--8c9ea8c165cc193aed70c5b1247091d0b4a3fe4a/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg
+Completed 302 Found in 421ms (ActiveRecord: 0.2ms | Allocations: 15719)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTM6NTU6NTMuMzE2WiIsInB1ciI6ImJsb2Jfa2V5In19--8c9ea8c165cc193aed70c5b1247091d0b4a3fe4a/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 14:50:53 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_7941.jpg\"; filename*=UTF-8''IMG_7941.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTM6NTU6NTMuMzE2WiIsInB1ciI6ImJsb2Jfa2V5In19--8c9ea8c165cc193aed70c5b1247091d0b4a3fe4a", "filename"=>"IMG_7941"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 185)
+
+
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 14:58:17 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2597)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4477)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 14:58:51 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"4k539RhrKGh37527FsCySan350cghmtw5kQU9untrwN2HT2Tr3NT0dg/BHdSWu8KfRiMQjVC1cxJtyo0t+FdbA==", "gif"=>{"name"=>"fail", "img"=>#<ActionDispatch::Http::UploadedFile:0x000055a94511b608 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-8050-93kz91.epub>, @original_filename="The+Elements+of+Computing+Systems.epub", @content_type="application/epub+zip", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"TheElementsOfComputingSystems_201408%2FThe+Elements+of+Computing+Systems.epub\"\r\nContent-Type: application/epub+zip\r\n">}, "commit"=>"Save Gif"}
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 598)
+Completed 200 OK in 131ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 32954)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:01:46 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"vQj8rETrC4h5FS2jNHqfuXRiB3bSrehwS4jm4HJ9wPcpW7bK8/NwMdbFtG9w4ML6oI1sc8dpVszke9giLHEymA==", "gif"=>{"name"=>"fail", "img"=>#<ActionDispatch::Http::UploadedFile:0x000055a945d64fb8 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-8050-1c7h8fg.epub>, @original_filename="The+Elements+of+Computing+Systems.epub", @content_type="application/epub+zip", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"TheElementsOfComputingSystems_201408%2FThe+Elements+of+Computing+Systems.epub\"\r\nContent-Type: application/epub+zip\r\n">}, "commit"=>"Save Gif"}
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1042)
+Completed 200 OK in 126ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 4305)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:03:55 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"hplkTGCuXRpfDNfN/6sJMo+LAl6xveLbMRbsVRHbcbcSyi4q17Ymo/DcTgG7MVRxW2RpW6R5XGee5dKXT9eD2A==", "gif"=>{"name"=>"another one"}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:9:in `file_size_cannot_be_more_than_10m'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.3ms | Allocations: 8013)
+
+
+  
+Module::DelegationError (blob delegated to attachment, but attachment is nil):
+  
+app/models/gif.rb:9:in `file_size_cannot_be_more_than_10m'
+app/controllers/gifs_controller.rb:12:in `create'
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:08:18 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"hplkTGCuXRpfDNfN/6sJMo+LAl6xveLbMRbsVRHbcbcSyi4q17Ymo/DcTgG7MVRxW2RpW6R5XGee5dKXT9eD2A==", "gif"=>{"name"=>"another one"}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:9:in `file_size_cannot_be_more_than_10m'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.1ms | Allocations: 7963)
+
+
+  
+Module::DelegationError (blob delegated to attachment, but attachment is nil):
+  
+app/models/gif.rb:11:in `file_size_cannot_be_more_than_10m'
+app/controllers/gifs_controller.rb:12:in `create'
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:08:48 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"hplkTGCuXRpfDNfN/6sJMo+LAl6xveLbMRbsVRHbcbcSyi4q17Ymo/DcTgG7MVRxW2RpW6R5XGee5dKXT9eD2A==", "gif"=>{"name"=>"another one"}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:9:in `file_size_cannot_be_more_than_10m'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1091)
+Completed 200 OK in 25ms (Views: 9.1ms | ActiveRecord: 1.2ms | Allocations: 10421)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:10:44 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"lRkHFWq6lGR2Lk/CuYRQSemFkNSAU8gCUBlkkCOyv6YBSk1z3aLv3dn+1g79Hg0KPWr70ZWXdr7/6lpSfb5NyQ==", "gif"=>{"name"=>"another one"}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:16:in `img_is_present'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gifs_controller.rb:12:in `create'
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 825)
+Completed 200 OK in 19ms (Views: 3.8ms | ActiveRecord: 1.6ms | Allocations: 9591)
+
+
+Started GET "/gifs" for 127.0.0.1 at 2020-03-16 15:38:48 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GifsController#index as HTML
+  Rendering gifs/index.html.erb within layouts/application
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs"[0m
+  ↳ app/views/gifs/index.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  Rendered gifs/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 9947)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.4ms | Allocations: 12780)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+    2: 
+    3: <%- @gifs.each do |gif| -%>
+    4:   <%= gif.name %></br>
+    5:   <%= image_tag gif.img.variant(resize_to_limit: [100, 100]) %></br>
+    6: <%- end -%>
+  
+app/views/gifs/index.html.erb:5
+app/views/gifs/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGif Destroy (13.3ms)[0m  [1m[31mDELETE FROM "gifs" WHERE "gifs"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "gifs"[0m
+Started GET "/gifs" for 127.0.0.1 at 2020-03-16 15:39:45 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GifsController#index as HTML
+  Rendering gifs/index.html.erb within layouts/application
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs"[0m
+  ↳ app/views/gifs/index.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  Rendered gifs/index.html.erb within layouts/application (Duration: 60.6ms | Allocations: 23659)
+Completed 200 OK in 75ms (Views: 69.5ms | ActiveRecord: 2.2ms | Allocations: 30201)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b/IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 15:39:45 +0100
+Processing by ActiveStorage::RepresentationsController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b", "filename"=>"IMG_7941"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (yes)[0m
+[36m  Disk Storage (5.6ms) [0m[34mGenerated URL for file at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NDQ6NDUuNzQ0WiIsInB1ciI6ImJsb2Jfa2V5In19--7fe6adaa0d60609a371a92646e34dc191028e44a/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NDQ6NDUuNzQ0WiIsInB1ciI6ImJsb2Jfa2V5In19--7fe6adaa0d60609a371a92646e34dc191028e44a/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms | Allocations: 3218)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NDQ6NDUuNzQ0WiIsInB1ciI6ImJsb2Jfa2V5In19--7fe6adaa0d60609a371a92646e34dc191028e44a/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 15:39:45 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_7941.jpg\"; filename*=UTF-8''IMG_7941.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NDQ6NDUuNzQ0WiIsInB1ciI6ImJsb2Jfa2V5In19--7fe6adaa0d60609a371a92646e34dc191028e44a", "filename"=>"IMG_7941"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 2559)
+
+
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 15:39:56 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1769)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2563)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Add a new Gif</h1>
+    2: <% if @gif.errors.full_messages.any? %>
+    3:   <% @gif.errors.full_messages.each do |error_message| %>
+    4:     <%= error_message %> <br />
+    5:   <% end %>
+  
+app/views/gifs/new.html.erb:2
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 15:40:48 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2609)
+Completed 200 OK in 16ms (Views: 8.5ms | ActiveRecord: 0.6ms | Allocations: 8340)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:41:47 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"VWNV4Oorc3xNzrZ0jsNSIiablTXKUvygmWY8g7/EHOLBMB+GXTMIxeIeL7jKWQ9h8nT+MN+WQhw2lQJB4cjujQ==", "gif"=>{"name"=>"Guatemala", "img"=>#<ActionDispatch::Http::UploadedFile:0x00007ff2c0410220 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-32162-a0rhnk.jpg>, @original_filename="guatemala.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"guatemala.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:16:in `img_is_present'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 799)
+Completed 200 OK in 37ms (Views: 4.3ms | ActiveRecord: 1.5ms | Allocations: 31513)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:44:01 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#create as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 398)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.0.2.1) lib/action_controller/metal/request_forgery_protection.rb:217:in `handle_unverified_request'
+actionpack (6.0.2.1) lib/action_controller/metal/request_forgery_protection.rb:249:in `handle_unverified_request'
+actionpack (6.0.2.1) lib/action_controller/metal/request_forgery_protection.rb:244:in `verify_authenticity_token'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:201:in `block (2 levels) in halting'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:202:in `block in halting'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.1) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.2.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 15:44:08 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 790)
+Completed 200 OK in 21ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 6359)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:44:12 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"u4T19Sj9yhIg9Y9Zf+c5mA1tXHBcrx00sL7xg2lwvnIv17+Tn+Wxq48lFpU7fWTb2YI3dUlro4gfTc9BN3xMHQ==", "gif"=>{"name"=>"Guatemala", "img"=>#<ActionDispatch::Http::UploadedFile:0x0000560152a41998 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-32162-axsno7.jpg>, @original_filename="guatemala.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"guatemala.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:16:in `img_is_present'
+  [1m[36mGif Create (0.4ms)[0m  [1m[32mINSERT INTO "gifs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Guatemala"], ["created_at", "2020-03-16 14:44:12.815919"], ["updated_at", "2020-03-16 14:44:12.815919"]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "b27wcxy0q1ti8rs28njcjnga4hbr"], ["filename", "guatemala.jpg"], ["content_type", "image/webp"], ["metadata", "{\"identified\":true}"], ["byte_size", 303926], ["checksum", "bJHjwkLef2b3nkElCzms7g=="], ["created_at", "2020-03-16 14:44:12.821738"]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "img"], ["record_type", "Gif"], ["record_id", 3], ["blob_id", 2], ["created_at", "2020-03-16 14:44:12.825971"]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mGif Update (0.1ms)[0m  [1m[33mUPDATE "gifs" SET "updated_at" = ? WHERE "gifs"."id" = ?[0m  [["updated_at", "2020-03-16 14:44:12.829032"], ["id", 3]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[35m (21.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+[36m  Disk Storage (3.8ms) [0m[32mUploaded file to key: b27wcxy0q1ti8rs28njcjnga4hbr (checksum: bJHjwkLef2b3nkElCzms7g==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: afc07d84-32dd-46cd-8c18-9f536992a991) to Async(active_storage_analysis) with arguments: #<GlobalID:0x00007ff2c0b16858 @uri=#<URI::GID gid://ombulabs/ActiveStorage::Blob/2>>
+Redirected to http://localhost:3000/gifs/3
+Completed 302 Found in 75ms (ActiveRecord: 24.3ms | Allocations: 30399)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [afc07d84-32dd-46cd-8c18-9f536992a991] Performing ActiveStorage::AnalyzeJob (Job ID: afc07d84-32dd-46cd-8c18-9f536992a991) from Async(active_storage_analysis) enqueued at 2020-03-16T14:44:12Z with arguments: #<GlobalID:0x00007ff2c0b8e0b0 @uri=#<URI::GID gid://ombulabs/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [afc07d84-32dd-46cd-8c18-9f536992a991] [36m  Disk Storage (0.7ms) [0m[34mDownloaded file from key: b27wcxy0q1ti8rs28njcjnga4hbr[0m
+Started GET "/gifs/3" for 127.0.0.1 at 2020-03-16 15:44:12 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:9:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  Rendered gifs/show.html.erb within layouts/application (Duration: 22.6ms | Allocations: 3274)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.6ms | Allocations: 4311)
+
+
+  
+ActionView::Template::Error (ActiveStorage::InvariableError):
+    4: 
+    5: <h1>Your gif is called <%= @gif.name %></h1>
+    6: 
+    7: <%= image_tag @gif.img.variant(resize_to_limit: [100, 100]) %>
+  
+app/views/gifs/show.html.erb:7
+[ActiveJob] [ActiveStorage::AnalyzeJob] [afc07d84-32dd-46cd-8c18-9f536992a991]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [afc07d84-32dd-46cd-8c18-9f536992a991]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1280,\"height\":800,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [afc07d84-32dd-46cd-8c18-9f536992a991]   [1m[35m (19.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [afc07d84-32dd-46cd-8c18-9f536992a991] Performed ActiveStorage::AnalyzeJob (Job ID: afc07d84-32dd-46cd-8c18-9f536992a991) from Async(active_storage_analysis) in 583.48ms
+Started PUT "/__web_console/repl_sessions/cb0c76e8bbc86109a33045abd9ca93de" for 127.0.0.1 at 2020-03-16 15:44:37 +0100
+Started PUT "/__web_console/repl_sessions/cb0c76e8bbc86109a33045abd9ca93de" for 127.0.0.1 at 2020-03-16 15:44:38 +0100
+Started PUT "/__web_console/repl_sessions/cb0c76e8bbc86109a33045abd9ca93de" for 127.0.0.1 at 2020-03-16 15:44:39 +0100
+Started GET "/gifs/3" for 127.0.0.1 at 2020-03-16 15:45:41 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGif Load (0.4ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:9:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  Rendered gifs/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2490)
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.7ms | Allocations: 5277)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c49b44133421eb7f5c4a85c94b9312ec34c3184/guatemala.jpg" for 127.0.0.1 at 2020-03-16 15:45:41 +0100
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c49b44133421eb7f5c4a85c94b9312ec34c3184", "filename"=>"guatemala"}
+  [1m[36mActiveStorage::Blob Load (5.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (1.0ms) [0m[34mGenerated URL for file at key: b27wcxy0q1ti8rs28njcjnga4hbr (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZakkzZDJONGVUQnhNWFJwT0hKek1qaHVhbU5xYm1kaE5HaGljZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV0YwWlcxaGJHRXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkbmRXRjBaVzFoYkdFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUwOjQxLjU5OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--21647d5eaa80c38a43e1a493ba535cb836ad155f/guatemala.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guatemala.jpg%22%3B+filename%2A%3DUTF-8%27%27guatemala.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZakkzZDJONGVUQnhNWFJwT0hKek1qaHVhbU5xYm1kaE5HaGljZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV0YwWlcxaGJHRXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkbmRXRjBaVzFoYkdFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUwOjQxLjU5OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--21647d5eaa80c38a43e1a493ba535cb836ad155f/guatemala.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guatemala.jpg%22%3B+filename%2A%3DUTF-8%27%27guatemala.jpg
+Completed 302 Found in 12ms (ActiveRecord: 5.3ms | Allocations: 1855)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZakkzZDJONGVUQnhNWFJwT0hKek1qaHVhbU5xYm1kaE5HaGljZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV0YwWlcxaGJHRXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkbmRXRjBaVzFoYkdFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUwOjQxLjU5OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--21647d5eaa80c38a43e1a493ba535cb836ad155f/guatemala.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guatemala.jpg%22%3B+filename%2A%3DUTF-8%27%27guatemala.jpg" for 127.0.0.1 at 2020-03-16 15:45:41 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"guatemala.jpg\"; filename*=UTF-8''guatemala.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZakkzZDJONGVUQnhNWFJwT0hKek1qaHVhbU5xYm1kaE5HaGljZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV0YwWlcxaGJHRXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkbmRXRjBaVzFoYkdFdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUwOjQxLjU5OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--21647d5eaa80c38a43e1a493ba535cb836ad155f", "filename"=>"guatemala"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 209)
+
+
+Started GET "/gifs/3" for 127.0.0.1 at 2020-03-16 15:46:10 +0100
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:9:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  Rendered gifs/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2944)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms | Allocations: 4256)
+
+
+  
+ActionView::Template::Error (ActiveStorage::InvariableError):
+    4: 
+    5: <h1>Your gif is called <%= @gif.name %></h1>
+    6: 
+    7: <%= image_tag @gif.img.variant(resize_to_limit: [300, 300]) %>
+  
+app/views/gifs/show.html.erb:7
+Started PUT "/__web_console/repl_sessions/4d2358690710957806b95e001e95a9dd" for 127.0.0.1 at 2020-03-16 15:46:22 +0100
+Started PUT "/__web_console/repl_sessions/4d2358690710957806b95e001e95a9dd" for 127.0.0.1 at 2020-03-16 15:46:23 +0100
+Started PUT "/__web_console/repl_sessions/4d2358690710957806b95e001e95a9dd" for 127.0.0.1 at 2020-03-16 15:46:23 +0100
+  [1m[36mGif Destroy (21.9ms)[0m  [1m[31mDELETE FROM "gifs" WHERE "gifs"."id" = ?[0m  [["id", 3]]
+  ↳ app/views/gifs/show.html.erb:7
+Started GET "/gifs" for 127.0.0.1 at 2020-03-16 15:46:29 +0100
+Processing by GifsController#index as HTML
+  Rendering gifs/index.html.erb within layouts/application
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs"[0m
+  ↳ app/views/gifs/index.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  Rendered gifs/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 4754)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.5ms | Allocations: 6834)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b/IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 15:46:29 +0100
+Processing by ActiveStorage::RepresentationsController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6de404642ad3b45e7b6b307004041067b887c38f", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b", "filename"=>"IMG_7941"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (yes)[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/4mhswldrkfeij8rltmjeqbyy8fj1/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NTE6MjkuNDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--3c5b7debb98c3801f4d0ff0e5e0ef975ba60917b/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NTE6MjkuNDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--3c5b7debb98c3801f4d0ff0e5e0ef975ba60917b/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1852)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NTE6MjkuNDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--3c5b7debb98c3801f4d0ff0e5e0ef975ba60917b/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 15:46:29 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_7941.jpg\"; filename*=UTF-8''IMG_7941.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NTE6MjkuNDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--3c5b7debb98c3801f4d0ff0e5e0ef975ba60917b", "filename"=>"IMG_7941"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 183)
+
+
+Started GET "/gifs/new" for 127.0.0.1 at 2020-03-16 15:46:35 +0100
+Processing by GifsController#new as HTML
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 972)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 2711)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:46:46 +0100
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"pAJ+vSZzY2n/lmsQmhfYigGKflAEuDp2M+O5W+mHcTUwUTTbkWsY0FBG8tzejYXJ1WUVVRF8hMqcEIeZt4uDWg==", "gif"=>{"name"=>"other", "img"=>#<ActionDispatch::Http::UploadedFile:0x00007ff2a880e1a0 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-32162-16ie05a.png>, @original_filename="vaporx5.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"vaporx5.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Save Gif"}
+  Rendering gifs/new.html.erb within layouts/application
+  Rendered gifs/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 767)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 3315)
+
+
+Started POST "/gifs" for 127.0.0.1 at 2020-03-16 15:47:14 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GifsController#create as HTML
+  Parameters: {"authenticity_token"=>"K6G9B5DTL3ZBx/xrjnEIglOZYbHgSWN6Qd3jv3z7/uq/8vdhJ8tUz+4XZafK61XBh3YKtPWN3cbuLt19IvcMhQ==", "gif"=>{"name"=>"other", "img"=>#<ActionDispatch::Http::UploadedFile:0x00007ff2a89f4d20 @tempfile=#<Tempfile:/tmp/RackMultipart20200316-32162-1tseja8.png>, @original_filename="usport-logo.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"gif[img]\"; filename=\"usport-logo.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Save Gif"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/gif.rb:16:in `img_is_present'
+  [1m[36mGif Create (0.3ms)[0m  [1m[32mINSERT INTO "gifs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "other"], ["created_at", "2020-03-16 14:47:15.062082"], ["updated_at", "2020-03-16 14:47:15.062082"]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "0fwp50n2nj1psdgue1f6i9hd01z4"], ["filename", "usport-logo.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 6206], ["checksum", "1zFISx3KDTRba1eoRq0iyg=="], ["created_at", "2020-03-16 14:47:15.068030"]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "img"], ["record_type", "Gif"], ["record_id", 4], ["blob_id", 3], ["created_at", "2020-03-16 14:47:15.070278"]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[36mGif Update (0.2ms)[0m  [1m[33mUPDATE "gifs" SET "updated_at" = ? WHERE "gifs"."id" = ?[0m  [["updated_at", "2020-03-16 14:47:15.072861"], ["id", 4]]
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+  [1m[35m (14.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/gifs_controller.rb:18:in `create'
+[36m  Disk Storage (1.2ms) [0m[32mUploaded file to key: 0fwp50n2nj1psdgue1f6i9hd01z4 (checksum: 1zFISx3KDTRba1eoRq0iyg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: d4e70b2c-ee68-463f-8828-47e55ad2c600) to Async(active_storage_analysis) with arguments: #<GlobalID:0x0000560152832ad0 @uri=#<URI::GID gid://ombulabs/ActiveStorage::Blob/3>>
+Redirected to http://localhost:3000/gifs/4
+Completed 302 Found in 87ms (ActiveRecord: 17.5ms | Allocations: 30532)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d4e70b2c-ee68-463f-8828-47e55ad2c600] Performing ActiveStorage::AnalyzeJob (Job ID: d4e70b2c-ee68-463f-8828-47e55ad2c600) from Async(active_storage_analysis) enqueued at 2020-03-16T14:47:15Z with arguments: #<GlobalID:0x00007ff2c06ff8c8 @uri=#<URI::GID gid://ombulabs/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d4e70b2c-ee68-463f-8828-47e55ad2c600] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: 0fwp50n2nj1psdgue1f6i9hd01z4[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d4e70b2c-ee68-463f-8828-47e55ad2c600]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d4e70b2c-ee68-463f-8828-47e55ad2c600]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":410,\"height\":40,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d4e70b2c-ee68-463f-8828-47e55ad2c600]   [1m[35m (25.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gifs/4" for 127.0.0.1 at 2020-03-16 15:47:15 +0100
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d4e70b2c-ee68-463f-8828-47e55ad2c600] Performed ActiveStorage::AnalyzeJob (Job ID: d4e70b2c-ee68-463f-8828-47e55ad2c600) from Async(active_storage_analysis) in 70.79ms
+Processing by GifsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGif Load (0.1ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:9:in `show'
+  Rendering gifs/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gifs/show.html.erb:7
+  Rendered gifs/show.html.erb within layouts/application (Duration: 14.8ms | Allocations: 8777)
+Completed 200 OK in 28ms (Views: 16.0ms | ActiveRecord: 1.9ms | Allocations: 14672)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4a5579ddc804fc525862dd4eb3a14f33208d19d2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--1dfb7f021fb17e55da9be5debb6177fa0da7e1cd/usport-logo.png" for 127.0.0.1 at 2020-03-16 15:47:15 +0100
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4a5579ddc804fc525862dd4eb3a14f33208d19d2", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--1dfb7f021fb17e55da9be5debb6177fa0da7e1cd", "filename"=>"usport-logo"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/0fwp50n2nj1psdgue1f6i9hd01z4/caecd1ce40db3fc70afdc847e7705ef2e050c7336e8f1aa443447822827b608c (no)[0m
+[36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: 0fwp50n2nj1psdgue1f6i9hd01z4[0m
+[36m  Disk Storage (0.2ms) [0m[32mUploaded file to key: variants/0fwp50n2nj1psdgue1f6i9hd01z4/caecd1ce40db3fc70afdc847e7705ef2e050c7336e8f1aa443447822827b608c[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/0fwp50n2nj1psdgue1f6i9hd01z4/caecd1ce40db3fc70afdc847e7705ef2e050c7336e8f1aa443447822827b608c (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzlqWVdWalpERmpaVFF3WkdJelptTTNNR0ZtWkdNNE5EZGxOemN3TldWbU1tVXdOVEJqTnpNek5tVTRaakZoWVRRME16UTBOemd5TWpneU4ySTJNRGhqQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjE1LjY2N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--14db910069c6f19494d8e21732d4da9c5bd8cf1b/usport-logo.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22usport-logo.png%22%3B+filename%2A%3DUTF-8%27%27usport-logo.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzlqWVdWalpERmpaVFF3WkdJelptTTNNR0ZtWkdNNE5EZGxOemN3TldWbU1tVXdOVEJqTnpNek5tVTRaakZoWVRRME16UTBOemd5TWpneU4ySTJNRGhqQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjE1LjY2N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--14db910069c6f19494d8e21732d4da9c5bd8cf1b/usport-logo.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22usport-logo.png%22%3B+filename%2A%3DUTF-8%27%27usport-logo.png
+Completed 302 Found in 68ms (ActiveRecord: 0.2ms | Allocations: 3168)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzlqWVdWalpERmpaVFF3WkdJelptTTNNR0ZtWkdNNE5EZGxOemN3TldWbU1tVXdOVEJqTnpNek5tVTRaakZoWVRRME16UTBOemd5TWpneU4ySTJNRGhqQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjE1LjY2N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--14db910069c6f19494d8e21732d4da9c5bd8cf1b/usport-logo.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22usport-logo.png%22%3B+filename%2A%3DUTF-8%27%27usport-logo.png" for 127.0.0.1 at 2020-03-16 15:47:15 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"usport-logo.png\"; filename*=UTF-8''usport-logo.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzlqWVdWalpERmpaVFF3WkdJelptTTNNR0ZtWkdNNE5EZGxOemN3TldWbU1tVXdOVEJqTnpNek5tVTRaakZoWVRRME16UTBOemd5TWpneU4ySTJNRGhqQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjE1LjY2N1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--14db910069c6f19494d8e21732d4da9c5bd8cf1b", "filename"=>"usport-logo"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 207)
+
+
+Started GET "/gifs" for 127.0.0.1 at 2020-03-16 15:47:20 +0100
+Processing by GifsController#index as HTML
+  Rendering gifs/index.html.erb within layouts/application
+  [1m[36mGif Load (0.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs"[0m
+  ↳ app/views/gifs/index.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Gif"], ["name", "img"], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gifs/index.html.erb:5
+  Rendered gifs/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 4531)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.8ms | Allocations: 6320)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4a5579ddc804fc525862dd4eb3a14f33208d19d2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b/usport-logo.png" for 127.0.0.1 at 2020-03-16 15:47:20 +0100
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4a5579ddc804fc525862dd4eb3a14f33208d19d2", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwYVdscCIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--e24dbae914f35f6912a8cc53cbc53f9fb861511b", "filename"=>"usport-logo"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (0.0ms) [0m[34mChecked if file exists at key: variants/0fwp50n2nj1psdgue1f6i9hd01z4/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (no)[0m
+[36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: 0fwp50n2nj1psdgue1f6i9hd01z4[0m
+[36m  Disk Storage (0.4ms) [0m[32mUploaded file to key: variants/0fwp50n2nj1psdgue1f6i9hd01z4/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/0fwp50n2nj1psdgue1f6i9hd01z4/471811ab915d3be0d6a17be54379d9840363ec879580364c38eb547ffd150d77 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjIwLjYwMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--916b652589669e667ae4e1c7cf90362c699e9fd4/usport-logo.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22usport-logo.png%22%3B+filename%2A%3DUTF-8%27%27usport-logo.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjIwLjYwMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--916b652589669e667ae4e1c7cf90362c699e9fd4/usport-logo.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22usport-logo.png%22%3B+filename%2A%3DUTF-8%27%27usport-logo.png
+Completed 302 Found in 39ms (ActiveRecord: 0.2ms | Allocations: 2757)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NTE6MjkuNDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--3c5b7debb98c3801f4d0ff0e5e0ef975ba60917b/IMG_7941.jpg?content_type=image%2Fjpeg&disposition=inline%3B+filename%3D%22IMG_7941.jpg%22%3B+filename%2A%3DUTF-8%27%27IMG_7941.jpg" for 127.0.0.1 at 2020-03-16 15:47:20 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/jpeg", "disposition"=>"inline; filename=\"IMG_7941.jpg\"; filename*=UTF-8''IMG_7941.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZORzFvYzNkc1pISnJabVZwYWpoeWJIUnRhbVZ4WW5sNU9HWnFNUzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKRGFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaVNVMUhYemM1TkRFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk56azBNUzVxY0djR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkE9PSIsImV4cCI6IjIwMjAtMDMtMTZUMTQ6NTE6MjkuNDE5WiIsInB1ciI6ImJsb2Jfa2V5In19--3c5b7debb98c3801f4d0ff0e5e0ef975ba60917b", "filename"=>"IMG_7941"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 183)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjIwLjYwMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--916b652589669e667ae4e1c7cf90362c699e9fd4/usport-logo.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22usport-logo.png%22%3B+filename%2A%3DUTF-8%27%27usport-logo.png" for 127.0.0.1 at 2020-03-16 15:47:20 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"usport-logo.png\"; filename*=UTF-8''usport-logo.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSnJkbUZ5YVdGdWRITXZNR1ozY0RVd2JqSnVhakZ3YzJSbmRXVXhaalpwT1doa01ERjZOQzgwTnpFNE1URmhZamt4TldRelltVXdaRFpoTVRkaVpUVTBNemM1WkRrNE5EQXpOak5sWXpnM09UVTRNRE0yTkdNek9HVmlOVFEzWm1aa01UVXdaRGMzQmpvR1JWUTZFR1JwYzNCdmMybDBhVzl1U1NKSmFXNXNhVzVsT3lCbWFXeGxibUZ0WlQwaWRYTndiM0owTFd4dloyOHVjRzVuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkMWMzQnZjblF0Ykc5bmJ5NXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1ZKSWc1cGJXRm5aUzl3Ym1jR093WlUiLCJleHAiOiIyMDIwLTAzLTE2VDE0OjUyOjIwLjYwMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--916b652589669e667ae4e1c7cf90362c699e9fd4", "filename"=>"usport-logo"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 183)
+
+
